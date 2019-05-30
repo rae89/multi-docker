@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from;
+import axios from 'axios';
 
 class Fib extends Component {
     state = {
@@ -46,8 +46,10 @@ class Fib extends Component {
                 <div key={key}>
                     For index {key} I calculated {this.state.values[key]}
                 </div>
-            )
+            );
         }
+        
+        return entries;
     }
     render() {
         return (
