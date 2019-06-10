@@ -18,5 +18,5 @@ after_success:
   # Take those images and push them to docker hub
   - docker push robzilla3000/multi-client
   - docker push robzilla3000/multi-nginx
-  - docker push robzill3000/multi-server
+  - docker push robzilla3000/multi-server
   - docker push robzilla3000/multi-worker
