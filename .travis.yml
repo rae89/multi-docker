@@ -6,13 +6,14 @@ before_install:
   - docker build -t robzilla3000/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true robzilla3000/react-test npm test -- --watchAll=false
-
+  #- docker run -e CI=true robzilla3000/react-test npm test -- --watchAll=false
+  - docker run robzilla3000/react-test npm test -- --coverage
+  
 after_success:
   - docker build -t robzilla3000/multi-client ./client
   - docker build -t robzilla3000/multi-nginx ./nginx
   - docker build -t robzilla3000/multi-server ./server
-  - docker build -t robzilla3000/multi-worked ./worker
+  - docker build -t robzilla3000/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
