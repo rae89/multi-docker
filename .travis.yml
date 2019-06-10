@@ -7,7 +7,7 @@ before_install:
 
 script:
   #- docker run -e CI=true robzilla3000/react-test npm test -- --watchAll=false
-  - docker run robzilla3000/react-test npm run test -- --coverage --watchAll=false
+  - docker run -e CI=true robzilla3000/react-test npm run test -- --coverage --watchAll=false
   
 after_success:
   - docker build -t robzilla3000/multi-client ./client
